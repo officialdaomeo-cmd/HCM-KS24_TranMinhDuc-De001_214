@@ -17,9 +17,8 @@ public class ProductFallback implements FallbackFactory<ProductClient> {
                 if (cause instanceof FeignException.NotFound) {
                      throw new ProductNotFoundException(id);
                 }
+                throw new ProductServiceException("Product service is unavailable");
             }
-        }
-        throw new ProductServiceException("Loi day");
-
+        };
     }
-    }
+}
